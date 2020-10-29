@@ -1,0 +1,12 @@
+version: '3'
+services:
+  api:
+    # image: image
+    build: ./api
+    ports: ['9000:8000']
+  car_service:
+    # image: image
+    build: ./car_service
+    # by commenting out "ports", this car_service is now only open to other services
+    # on this docker network
+    # ports: ['9001:8001']
