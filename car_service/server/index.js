@@ -1,32 +1,20 @@
 const express = require('express')
-const PORT = 8001
+const v1Router = require('./v1.0')
 const app = express()
+const router = express.Router()
 
-app.get('/cars', (req, res) => {
-  try {
-    return res.json({ cars: [0,1,2,3,4,5] })
-  } catch(err) {
-    if (err) {
-      console.error('ERROR: /cars/:id failed', err)
-    }
-    return res.status(500).send({ message: 'problem getting car list'})
-  }
-})
+const { PORT = 8001 } = process.env
 
-app.get('/cars/:id', (req, res) => {
-  try {
-    const { params: { id } } = req
-    return res.json({ carDetails: { id, name: 'malibu '}})
-  } catch (err) {
-    if (err) {
-      console.error('ERROR: /cars/:id failed', err)
-    }
-    return res.status(500).send({ message: 'problem getting car list'})
-  }
+app.use('/api', router)
+router.get('/v1/cars', v1Router.getCarList)
+router.get('/v1/cars/:id', v1Router.getCarById)
+
+app.get('/*', (req, res) => {
+  return res.status(404).send({ message: 'not found'})
 })
 
 try {
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(`${PORT}`, '0.0.0.0', () => {
     console.log(`Backend listening on port ${PORT}`);
   });
 } catch (err) {

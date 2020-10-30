@@ -2,10 +2,16 @@ version: '3'
 services:
   api:
     # image: image
+    environment:
+      - CAR_SERVICE_DOMAIN=car_service
+      - CAR_SERVICE_PORT=8001
+      - PORT=8000
     build: ./api
     ports: ['9000:8000']
   car_service:
     # image: image
+    environment:
+      - PORT=8001
     build: ./car_service
     # by commenting out "ports", this car_service is now only open to other services
     # on this docker network
