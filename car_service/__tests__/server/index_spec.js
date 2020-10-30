@@ -7,7 +7,16 @@ describe('car_service', function () {
     it('should get a list of cars', function () {
       return frisby.get('http://localhost:8001/api/v1/cars')
         .expect('status', 200)
-        .expect('jsonTypes', 'cars.*', Joi.number().required())
+        .expect('jsonTypes', 'cars.*', {
+          id: Joi.number().required(),
+          mileage: Joi.number().required(),
+          package: Joi.string().required(),
+          model: Joi.string().required(),
+          make: Joi.string().required(),
+          color: Joi.string().required(),
+          category: Joi.string().required(),
+          year: Joi.number().required(),
+        })
     });
   })
   describe('/cars/:id route', function() {
@@ -16,7 +25,13 @@ describe('car_service', function () {
         .expect('status', 200)
         .expect('jsonTypes', 'carDetails', {
           id: Joi.number().required(),
-          name: Joi.string().required(),
+          mileage: Joi.number().required(),
+          package: Joi.string().required(),
+          model: Joi.string().required(),
+          make: Joi.string().required(),
+          color: Joi.string().required(),
+          category: Joi.string().required(),
+          year: Joi.number().required(),
         })
     });
   })

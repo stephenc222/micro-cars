@@ -6,7 +6,7 @@ const getCarServiceList = (req, res) => {
   try {
     return fetch(`http://${CAR_SERVICE_DOMAIN}:${CAR_SERVICE_PORT}/api/v1/cars`)
       .then(res => res.json())
-      .then(body => res.send({...body}))
+      .then(body => res.send(body))
       .catch(err => {
         if (err) {
           console.error('GET ERROR:', `${err}`)

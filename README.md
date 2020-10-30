@@ -16,4 +16,4 @@ gets the details for a particular car with the given id.
 
 ## Testing
 
-Testing is managed by jest, and each package `api` and `car_service`, have their own testing scripts. For convenience, there is a `test.sh` at the root of this repo, runnable with `sh ./test.sh`
+Testing is managed by jest, and each package `api` and `car_service`, have their own testing scripts. For convenience, there is a `test.sh` at the root of this repo, runnable with `sh ./test.sh`. This script assumes both packages have had their dependencies installed with `npm install`.

@@ -1,0 +1,35 @@
+[
+  {
+    "id": 0,
+    "price": 19999,
+    "mileage": 1000,
+    "package": "SE",
+    "model": "Malibu",
+    "make": "Chevrolet",
+    "color": "white",
+    "category": "sedan",
+    "year": 2003
+  },
+  {
+    "id": 1,
+    "price": 49999,
+    "mileage": 5000,
+    "package": "XE",
+    "model": "Silverado",
+    "make": "Chevrolet",
+    "color": "blue",
+    "category": "truck",
+    "year": 2005
+  },
+  {
+    "id": 2,
+    "price": 39999,
+    "mileage": 3000,
+    "package": "LE",
+    "model": "Mustang",
+    "make": "Ford",
+    "color": "red",
+    "category": "sport",
+    "year": 2008
+  }
+]
